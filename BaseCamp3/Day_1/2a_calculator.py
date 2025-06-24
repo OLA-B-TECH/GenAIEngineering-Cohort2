@@ -1,6 +1,7 @@
 # calculator.py
 # A simple calculator with add and subtract functions
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 import uvicorn
 
 app = FastAPI()
@@ -8,15 +9,15 @@ app = FastAPI()
 @app.get("/add")
 def add(a, b):
     """Add two numbers and return the result."""
-    # result = float(a) + float(b)
-    result = a+b
+    result = float(a) + float(b)
+    #result = a+b
     return {"operation": "add", "a": a, "b": b, "result": result}
 
 @app.get("/subtract")
 def subtract(a, b):
     """Subtract b from a and return the result."""
-    # result = float(a) - float(b)
-    result = a-b
+    result = float(a) - float(b)
+    #result = a-b
     return {"operation": "subtract", "a": a, "b": b, "result": result}
 
 @app.get("/")
